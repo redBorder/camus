@@ -1,4 +1,4 @@
-package com.liquidm.camus.com.liquidm.camus;
+package com.liquidm.camus;
 
 import com.linkedin.camus.coders.CamusWrapper;
 import com.linkedin.camus.etl.IEtlKey;
