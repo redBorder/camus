@@ -4,17 +4,14 @@ import com.linkedin.camus.coders.CamusWrapper;
 import com.linkedin.camus.etl.IEtlKey;
 import com.linkedin.camus.etl.RecordWriterProvider;
 import com.linkedin.camus.etl.kafka.mapred.EtlMultiOutputFormat;
+import com.liquidm.Events;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.RecordWriter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter;
-import org.apache.pig.data.Tuple;
-import org.apache.pig.data.TupleFactory;
-import org.apache.pig.impl.logicalLayer.schema.Schema;
-import org.apache.pig.impl.util.Utils;
 import parquet.hadoop.ParquetWriter;
 import parquet.hadoop.metadata.CompressionCodecName;
-import parquet.pig.TupleWriteSupport;
+import parquet.proto.ProtoWriteSupport;
 
 import java.io.IOException;
 
@@ -31,20 +28,18 @@ class ParquetCamusWriter implements RecordWriterProvider {
 
     @Override
     public RecordWriter<IEtlKey, CamusWrapper> getDataRecordWriter(TaskAttemptContext context, String fileName, CamusWrapper data, FileOutputCommitter committer) throws IOException, InterruptedException {
-        String pigSchemaString = "TODO";
-
-        Schema pigSchema = Utils.getSchemaFromString(pigSchemaString);
-        TupleWriteSupport writeSupport = new TupleWriteSupport(pigSchema);
+        ProtoWriteSupport support = new ProtoWriteSupport(Events.EventLogged.class);
 
         Path cwd = committer.getWorkPath();
         Path file = new Path(cwd, EtlMultiOutputFormat.getUniqueFile(context, fileName, getFilenameExtension()));
 
-        final ParquetWriter<Tuple> writer = new ParquetWriter<Tuple>(file, writeSupport, CompressionCodecName.UNCOMPRESSED,  ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE, false, false);
+        final ParquetWriter<Events.EventLogged> writer = new ParquetWriter<Events.EventLogged>(file, support, CompressionCodecName.GZIP,  ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE, false, false);
 
         return new RecordWriter<IEtlKey, CamusWrapper>() {
 
             @Override
             public void write(IEtlKey iEtlKey, CamusWrapper camusWrapper) throws IOException, InterruptedException {
+                
                 TupleFactory tf = TupleFactory.getInstance();
                 Tuple t = tf.newTuple();
 
