@@ -891,20 +891,32 @@ public final class Events {
     com.google.protobuf.ByteString
         getOsVersionNormalizedBytes();
 
-    // optional string platform = 1035;
+    // optional string plattform = 1035;
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
-    boolean hasPlatform();
+    boolean hasPlattform();
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
-    java.lang.String getPlatform();
+    java.lang.String getPlattform();
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
     com.google.protobuf.ByteString
-        getPlatformBytes();
+        getPlattformBytes();
 
     // repeated int32 potential_ads = 1036;
     /**
@@ -1116,65 +1128,50 @@ public final class Events {
     com.google.protobuf.ByteString
         getPubNameBytes();
 
-    // repeated string site_keywords = 2008;
+    // optional string site_keywords = 2008;
     /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
-    java.util.List<java.lang.String>
-    getSiteKeywordsList();
+    boolean hasSiteKeywords();
     /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
-    int getSiteKeywordsCount();
+    java.lang.String getSiteKeywords();
     /**
-     * <code>repeated string site_keywords = 2008;</code>
-     */
-    java.lang.String getSiteKeywords(int index);
-    /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
     com.google.protobuf.ByteString
-        getSiteKeywordsBytes(int index);
+        getSiteKeywordsBytes();
 
-    // repeated string user_customdata = 2009;
+    // optional string user_customdata = 2009;
     /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
-    java.util.List<java.lang.String>
-    getUserCustomdataList();
+    boolean hasUserCustomdata();
     /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
-    int getUserCustomdataCount();
+    java.lang.String getUserCustomdata();
     /**
-     * <code>repeated string user_customdata = 2009;</code>
-     */
-    java.lang.String getUserCustomdata(int index);
-    /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
     com.google.protobuf.ByteString
-        getUserCustomdataBytes(int index);
+        getUserCustomdataBytes();
 
-    // repeated string user_keywords = 2010;
+    // optional string user_keywords = 2010;
     /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
-    java.util.List<java.lang.String>
-    getUserKeywordsList();
+    boolean hasUserKeywords();
     /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
-    int getUserKeywordsCount();
+    java.lang.String getUserKeywords();
     /**
-     * <code>repeated string user_keywords = 2010;</code>
-     */
-    java.lang.String getUserKeywords(int index);
-    /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
     com.google.protobuf.ByteString
-        getUserKeywordsBytes(int index);
+        getUserKeywordsBytes();
 
     // optional string zip = 2011;
     /**
@@ -1674,7 +1671,7 @@ public final class Events {
             }
             case 8282: {
               bitField2_ |= 0x00002000;
-              platform_ = input.readBytes();
+              plattform_ = input.readBytes();
               break;
             }
             case 8288: {
@@ -1791,31 +1788,22 @@ public final class Events {
               break;
             }
             case 16066: {
-              if (!((mutable_bitField2_ & 0x20000000) == 0x20000000)) {
-                siteKeywords_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField2_ |= 0x20000000;
-              }
-              siteKeywords_.add(input.readBytes());
+              bitField2_ |= 0x08000000;
+              siteKeywords_ = input.readBytes();
               break;
             }
             case 16074: {
-              if (!((mutable_bitField2_ & 0x40000000) == 0x40000000)) {
-                userCustomdata_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField2_ |= 0x40000000;
-              }
-              userCustomdata_.add(input.readBytes());
+              bitField2_ |= 0x10000000;
+              userCustomdata_ = input.readBytes();
               break;
             }
             case 16082: {
-              if (!((mutable_bitField2_ & 0x80000000) == 0x80000000)) {
-                userKeywords_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField2_ |= 0x80000000;
-              }
-              userKeywords_.add(input.readBytes());
+              bitField2_ |= 0x20000000;
+              userKeywords_ = input.readBytes();
               break;
             }
             case 16090: {
-              bitField2_ |= 0x08000000;
+              bitField2_ |= 0x40000000;
               zip_ = input.readBytes();
               break;
             }
@@ -1832,15 +1820,6 @@ public final class Events {
         }
         if (((mutable_bitField2_ & 0x00400000) == 0x00400000)) {
           categories_ = java.util.Collections.unmodifiableList(categories_);
-        }
-        if (((mutable_bitField2_ & 0x20000000) == 0x20000000)) {
-          siteKeywords_ = new com.google.protobuf.UnmodifiableLazyStringList(siteKeywords_);
-        }
-        if (((mutable_bitField2_ & 0x40000000) == 0x40000000)) {
-          userCustomdata_ = new com.google.protobuf.UnmodifiableLazyStringList(userCustomdata_);
-        }
-        if (((mutable_bitField2_ & 0x80000000) == 0x80000000)) {
-          userKeywords_ = new com.google.protobuf.UnmodifiableLazyStringList(userKeywords_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4852,20 +4831,28 @@ public final class Events {
       }
     }
 
-    // optional string platform = 1035;
-    public static final int PLATFORM_FIELD_NUMBER = 1035;
-    private java.lang.Object platform_;
+    // optional string plattform = 1035;
+    public static final int PLATTFORM_FIELD_NUMBER = 1035;
+    private java.lang.Object plattform_;
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
-    public boolean hasPlatform() {
+    public boolean hasPlattform() {
       return ((bitField2_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
-    public java.lang.String getPlatform() {
-      java.lang.Object ref = platform_;
+    public java.lang.String getPlattform() {
+      java.lang.Object ref = plattform_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -4873,22 +4860,26 @@ public final class Events {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          platform_ = s;
+          plattform_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string platform = 1035;</code>
+     * <code>optional string plattform = 1035;</code>
+     *
+     * <pre>
+     * should be fixed eventually
+     * </pre>
      */
     public com.google.protobuf.ByteString
-        getPlatformBytes() {
-      java.lang.Object ref = platform_;
+        getPlattformBytes() {
+      java.lang.Object ref = plattform_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        platform_ = b;
+        plattform_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5377,94 +5368,133 @@ public final class Events {
       }
     }
 
-    // repeated string site_keywords = 2008;
+    // optional string site_keywords = 2008;
     public static final int SITE_KEYWORDS_FIELD_NUMBER = 2008;
-    private com.google.protobuf.LazyStringList siteKeywords_;
+    private java.lang.Object siteKeywords_;
     /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
-    public java.util.List<java.lang.String>
-        getSiteKeywordsList() {
-      return siteKeywords_;
+    public boolean hasSiteKeywords() {
+      return ((bitField2_ & 0x08000000) == 0x08000000);
     }
     /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
-    public int getSiteKeywordsCount() {
-      return siteKeywords_.size();
+    public java.lang.String getSiteKeywords() {
+      java.lang.Object ref = siteKeywords_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          siteKeywords_ = s;
+        }
+        return s;
+      }
     }
     /**
-     * <code>repeated string site_keywords = 2008;</code>
-     */
-    public java.lang.String getSiteKeywords(int index) {
-      return siteKeywords_.get(index);
-    }
-    /**
-     * <code>repeated string site_keywords = 2008;</code>
+     * <code>optional string site_keywords = 2008;</code>
      */
     public com.google.protobuf.ByteString
-        getSiteKeywordsBytes(int index) {
-      return siteKeywords_.getByteString(index);
+        getSiteKeywordsBytes() {
+      java.lang.Object ref = siteKeywords_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        siteKeywords_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    // repeated string user_customdata = 2009;
+    // optional string user_customdata = 2009;
     public static final int USER_CUSTOMDATA_FIELD_NUMBER = 2009;
-    private com.google.protobuf.LazyStringList userCustomdata_;
+    private java.lang.Object userCustomdata_;
     /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
-    public java.util.List<java.lang.String>
-        getUserCustomdataList() {
-      return userCustomdata_;
+    public boolean hasUserCustomdata() {
+      return ((bitField2_ & 0x10000000) == 0x10000000);
     }
     /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
-    public int getUserCustomdataCount() {
-      return userCustomdata_.size();
+    public java.lang.String getUserCustomdata() {
+      java.lang.Object ref = userCustomdata_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userCustomdata_ = s;
+        }
+        return s;
+      }
     }
     /**
-     * <code>repeated string user_customdata = 2009;</code>
-     */
-    public java.lang.String getUserCustomdata(int index) {
-      return userCustomdata_.get(index);
-    }
-    /**
-     * <code>repeated string user_customdata = 2009;</code>
+     * <code>optional string user_customdata = 2009;</code>
      */
     public com.google.protobuf.ByteString
-        getUserCustomdataBytes(int index) {
-      return userCustomdata_.getByteString(index);
+        getUserCustomdataBytes() {
+      java.lang.Object ref = userCustomdata_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userCustomdata_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    // repeated string user_keywords = 2010;
+    // optional string user_keywords = 2010;
     public static final int USER_KEYWORDS_FIELD_NUMBER = 2010;
-    private com.google.protobuf.LazyStringList userKeywords_;
+    private java.lang.Object userKeywords_;
     /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
-    public java.util.List<java.lang.String>
-        getUserKeywordsList() {
-      return userKeywords_;
+    public boolean hasUserKeywords() {
+      return ((bitField2_ & 0x20000000) == 0x20000000);
     }
     /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
-    public int getUserKeywordsCount() {
-      return userKeywords_.size();
+    public java.lang.String getUserKeywords() {
+      java.lang.Object ref = userKeywords_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userKeywords_ = s;
+        }
+        return s;
+      }
     }
     /**
-     * <code>repeated string user_keywords = 2010;</code>
-     */
-    public java.lang.String getUserKeywords(int index) {
-      return userKeywords_.get(index);
-    }
-    /**
-     * <code>repeated string user_keywords = 2010;</code>
+     * <code>optional string user_keywords = 2010;</code>
      */
     public com.google.protobuf.ByteString
-        getUserKeywordsBytes(int index) {
-      return userKeywords_.getByteString(index);
+        getUserKeywordsBytes() {
+      java.lang.Object ref = userKeywords_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userKeywords_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     // optional string zip = 2011;
@@ -5474,7 +5504,7 @@ public final class Events {
      * <code>optional string zip = 2011;</code>
      */
     public boolean hasZip() {
-      return ((bitField2_ & 0x08000000) == 0x08000000);
+      return ((bitField2_ & 0x40000000) == 0x40000000);
     }
     /**
      * <code>optional string zip = 2011;</code>
@@ -5588,7 +5618,7 @@ public final class Events {
       location_ = com.liquidm.Events.EventLogged.Location.HAMBURG;
       mraid_ = false;
       osVersionNormalized_ = "";
-      platform_ = "";
+      plattform_ = "";
       potentialAds_ = java.util.Collections.emptyList();
       remote_ = false;
       requester_ = "";
@@ -5604,9 +5634,9 @@ public final class Events {
       processingTime_ = 0;
       pubId_ = "";
       pubName_ = "";
-      siteKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      userCustomdata_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      userKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      siteKeywords_ = "";
+      userCustomdata_ = "";
+      userKeywords_ = "";
       zip_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -5861,7 +5891,7 @@ public final class Events {
         output.writeBytes(1034, getOsVersionNormalizedBytes());
       }
       if (((bitField2_ & 0x00002000) == 0x00002000)) {
-        output.writeBytes(1035, getPlatformBytes());
+        output.writeBytes(1035, getPlattformBytes());
       }
       for (int i = 0; i < potentialAds_.size(); i++) {
         output.writeInt32(1036, potentialAds_.get(i));
@@ -5908,16 +5938,16 @@ public final class Events {
       if (((bitField2_ & 0x04000000) == 0x04000000)) {
         output.writeBytes(2007, getPubNameBytes());
       }
-      for (int i = 0; i < siteKeywords_.size(); i++) {
-        output.writeBytes(2008, siteKeywords_.getByteString(i));
-      }
-      for (int i = 0; i < userCustomdata_.size(); i++) {
-        output.writeBytes(2009, userCustomdata_.getByteString(i));
-      }
-      for (int i = 0; i < userKeywords_.size(); i++) {
-        output.writeBytes(2010, userKeywords_.getByteString(i));
-      }
       if (((bitField2_ & 0x08000000) == 0x08000000)) {
+        output.writeBytes(2008, getSiteKeywordsBytes());
+      }
+      if (((bitField2_ & 0x10000000) == 0x10000000)) {
+        output.writeBytes(2009, getUserCustomdataBytes());
+      }
+      if (((bitField2_ & 0x20000000) == 0x20000000)) {
+        output.writeBytes(2010, getUserKeywordsBytes());
+      }
+      if (((bitField2_ & 0x40000000) == 0x40000000)) {
         output.writeBytes(2011, getZipBytes());
       }
       getUnknownFields().writeTo(output);
@@ -6239,7 +6269,7 @@ public final class Events {
       }
       if (((bitField2_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1035, getPlatformBytes());
+          .computeBytesSize(1035, getPlattformBytes());
       }
       {
         int dataSize = 0;
@@ -6311,34 +6341,19 @@ public final class Events {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2007, getPubNameBytes());
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < siteKeywords_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(siteKeywords_.getByteString(i));
-        }
-        size += dataSize;
-        size += 2 * getSiteKeywordsList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < userCustomdata_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(userCustomdata_.getByteString(i));
-        }
-        size += dataSize;
-        size += 2 * getUserCustomdataList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < userKeywords_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(userKeywords_.getByteString(i));
-        }
-        size += dataSize;
-        size += 2 * getUserKeywordsList().size();
-      }
       if (((bitField2_ & 0x08000000) == 0x08000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2008, getSiteKeywordsBytes());
+      }
+      if (((bitField2_ & 0x10000000) == 0x10000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2009, getUserCustomdataBytes());
+      }
+      if (((bitField2_ & 0x20000000) == 0x20000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2010, getUserKeywordsBytes());
+      }
+      if (((bitField2_ & 0x40000000) == 0x40000000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2011, getZipBytes());
       }
@@ -6612,7 +6627,7 @@ public final class Events {
         bitField2_ = (bitField2_ & ~0x00000800);
         osVersionNormalized_ = "";
         bitField2_ = (bitField2_ & ~0x00001000);
-        platform_ = "";
+        plattform_ = "";
         bitField2_ = (bitField2_ & ~0x00002000);
         potentialAds_ = java.util.Collections.emptyList();
         bitField2_ = (bitField2_ & ~0x00004000);
@@ -6644,11 +6659,11 @@ public final class Events {
         bitField2_ = (bitField2_ & ~0x08000000);
         pubName_ = "";
         bitField2_ = (bitField2_ & ~0x10000000);
-        siteKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        siteKeywords_ = "";
         bitField2_ = (bitField2_ & ~0x20000000);
-        userCustomdata_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        userCustomdata_ = "";
         bitField2_ = (bitField2_ & ~0x40000000);
-        userKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        userKeywords_ = "";
         bitField2_ = (bitField2_ & ~0x80000000);
         zip_ = "";
         bitField3_ = (bitField3_ & ~0x00000001);
@@ -6996,7 +7011,7 @@ public final class Events {
         if (((from_bitField2_ & 0x00002000) == 0x00002000)) {
           to_bitField2_ |= 0x00002000;
         }
-        result.platform_ = platform_;
+        result.plattform_ = plattform_;
         if (((bitField2_ & 0x00004000) == 0x00004000)) {
           potentialAds_ = java.util.Collections.unmodifiableList(potentialAds_);
           bitField2_ = (bitField2_ & ~0x00004000);
@@ -7059,26 +7074,20 @@ public final class Events {
           to_bitField2_ |= 0x04000000;
         }
         result.pubName_ = pubName_;
-        if (((bitField2_ & 0x20000000) == 0x20000000)) {
-          siteKeywords_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              siteKeywords_);
-          bitField2_ = (bitField2_ & ~0x20000000);
+        if (((from_bitField2_ & 0x20000000) == 0x20000000)) {
+          to_bitField2_ |= 0x08000000;
         }
         result.siteKeywords_ = siteKeywords_;
-        if (((bitField2_ & 0x40000000) == 0x40000000)) {
-          userCustomdata_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              userCustomdata_);
-          bitField2_ = (bitField2_ & ~0x40000000);
+        if (((from_bitField2_ & 0x40000000) == 0x40000000)) {
+          to_bitField2_ |= 0x10000000;
         }
         result.userCustomdata_ = userCustomdata_;
-        if (((bitField2_ & 0x80000000) == 0x80000000)) {
-          userKeywords_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              userKeywords_);
-          bitField2_ = (bitField2_ & ~0x80000000);
+        if (((from_bitField2_ & 0x80000000) == 0x80000000)) {
+          to_bitField2_ |= 0x20000000;
         }
         result.userKeywords_ = userKeywords_;
         if (((from_bitField3_ & 0x00000001) == 0x00000001)) {
-          to_bitField2_ |= 0x08000000;
+          to_bitField2_ |= 0x40000000;
         }
         result.zip_ = zip_;
         result.bitField0_ = to_bitField0_;
@@ -7358,9 +7367,9 @@ public final class Events {
           osVersionNormalized_ = other.osVersionNormalized_;
           onChanged();
         }
-        if (other.hasPlatform()) {
+        if (other.hasPlattform()) {
           bitField2_ |= 0x00002000;
-          platform_ = other.platform_;
+          plattform_ = other.plattform_;
           onChanged();
         }
         if (!other.potentialAds_.isEmpty()) {
@@ -7438,34 +7447,19 @@ public final class Events {
           pubName_ = other.pubName_;
           onChanged();
         }
-        if (!other.siteKeywords_.isEmpty()) {
-          if (siteKeywords_.isEmpty()) {
-            siteKeywords_ = other.siteKeywords_;
-            bitField2_ = (bitField2_ & ~0x20000000);
-          } else {
-            ensureSiteKeywordsIsMutable();
-            siteKeywords_.addAll(other.siteKeywords_);
-          }
+        if (other.hasSiteKeywords()) {
+          bitField2_ |= 0x20000000;
+          siteKeywords_ = other.siteKeywords_;
           onChanged();
         }
-        if (!other.userCustomdata_.isEmpty()) {
-          if (userCustomdata_.isEmpty()) {
-            userCustomdata_ = other.userCustomdata_;
-            bitField2_ = (bitField2_ & ~0x40000000);
-          } else {
-            ensureUserCustomdataIsMutable();
-            userCustomdata_.addAll(other.userCustomdata_);
-          }
+        if (other.hasUserCustomdata()) {
+          bitField2_ |= 0x40000000;
+          userCustomdata_ = other.userCustomdata_;
           onChanged();
         }
-        if (!other.userKeywords_.isEmpty()) {
-          if (userKeywords_.isEmpty()) {
-            userKeywords_ = other.userKeywords_;
-            bitField2_ = (bitField2_ & ~0x80000000);
-          } else {
-            ensureUserKeywordsIsMutable();
-            userKeywords_.addAll(other.userKeywords_);
-          }
+        if (other.hasUserKeywords()) {
+          bitField2_ |= 0x80000000;
+          userKeywords_ = other.userKeywords_;
           onChanged();
         }
         if (other.hasZip()) {
@@ -10727,76 +10721,100 @@ public final class Events {
         return this;
       }
 
-      // optional string platform = 1035;
-      private java.lang.Object platform_ = "";
+      // optional string plattform = 1035;
+      private java.lang.Object plattform_ = "";
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
-      public boolean hasPlatform() {
+      public boolean hasPlattform() {
         return ((bitField2_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
-      public java.lang.String getPlatform() {
-        java.lang.Object ref = platform_;
+      public java.lang.String getPlattform() {
+        java.lang.Object ref = plattform_;
         if (!(ref instanceof java.lang.String)) {
           java.lang.String s = ((com.google.protobuf.ByteString) ref)
               .toStringUtf8();
-          platform_ = s;
+          plattform_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
       public com.google.protobuf.ByteString
-          getPlatformBytes() {
-        java.lang.Object ref = platform_;
+          getPlattformBytes() {
+        java.lang.Object ref = plattform_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          platform_ = b;
+          plattform_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
-      public Builder setPlatform(
+      public Builder setPlattform(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField2_ |= 0x00002000;
-        platform_ = value;
+        plattform_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
-      public Builder clearPlatform() {
+      public Builder clearPlattform() {
         bitField2_ = (bitField2_ & ~0x00002000);
-        platform_ = getDefaultInstance().getPlatform();
+        plattform_ = getDefaultInstance().getPlattform();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string platform = 1035;</code>
+       * <code>optional string plattform = 1035;</code>
+       *
+       * <pre>
+       * should be fixed eventually
+       * </pre>
        */
-      public Builder setPlatformBytes(
+      public Builder setPlattformBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField2_ |= 0x00002000;
-        platform_ = value;
+        plattform_ = value;
         onChanged();
         return this;
       }
@@ -11721,281 +11739,224 @@ public final class Events {
         return this;
       }
 
-      // repeated string site_keywords = 2008;
-      private com.google.protobuf.LazyStringList siteKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureSiteKeywordsIsMutable() {
-        if (!((bitField2_ & 0x20000000) == 0x20000000)) {
-          siteKeywords_ = new com.google.protobuf.LazyStringArrayList(siteKeywords_);
-          bitField2_ |= 0x20000000;
-         }
-      }
+      // optional string site_keywords = 2008;
+      private java.lang.Object siteKeywords_ = "";
       /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
-      public java.util.List<java.lang.String>
-          getSiteKeywordsList() {
-        return java.util.Collections.unmodifiableList(siteKeywords_);
+      public boolean hasSiteKeywords() {
+        return ((bitField2_ & 0x20000000) == 0x20000000);
       }
       /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
-      public int getSiteKeywordsCount() {
-        return siteKeywords_.size();
+      public java.lang.String getSiteKeywords() {
+        java.lang.Object ref = siteKeywords_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          siteKeywords_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>repeated string site_keywords = 2008;</code>
-       */
-      public java.lang.String getSiteKeywords(int index) {
-        return siteKeywords_.get(index);
-      }
-      /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
       public com.google.protobuf.ByteString
-          getSiteKeywordsBytes(int index) {
-        return siteKeywords_.getByteString(index);
+          getSiteKeywordsBytes() {
+        java.lang.Object ref = siteKeywords_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          siteKeywords_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
       public Builder setSiteKeywords(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSiteKeywordsIsMutable();
-        siteKeywords_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string site_keywords = 2008;</code>
-       */
-      public Builder addSiteKeywords(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureSiteKeywordsIsMutable();
-        siteKeywords_.add(value);
+  bitField2_ |= 0x20000000;
+        siteKeywords_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string site_keywords = 2008;</code>
-       */
-      public Builder addAllSiteKeywords(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureSiteKeywordsIsMutable();
-        super.addAll(values, siteKeywords_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
       public Builder clearSiteKeywords() {
-        siteKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField2_ = (bitField2_ & ~0x20000000);
+        siteKeywords_ = getDefaultInstance().getSiteKeywords();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string site_keywords = 2008;</code>
+       * <code>optional string site_keywords = 2008;</code>
        */
-      public Builder addSiteKeywordsBytes(
+      public Builder setSiteKeywordsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureSiteKeywordsIsMutable();
-        siteKeywords_.add(value);
+  bitField2_ |= 0x20000000;
+        siteKeywords_ = value;
         onChanged();
         return this;
       }
 
-      // repeated string user_customdata = 2009;
-      private com.google.protobuf.LazyStringList userCustomdata_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureUserCustomdataIsMutable() {
-        if (!((bitField2_ & 0x40000000) == 0x40000000)) {
-          userCustomdata_ = new com.google.protobuf.LazyStringArrayList(userCustomdata_);
-          bitField2_ |= 0x40000000;
-         }
-      }
+      // optional string user_customdata = 2009;
+      private java.lang.Object userCustomdata_ = "";
       /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
-      public java.util.List<java.lang.String>
-          getUserCustomdataList() {
-        return java.util.Collections.unmodifiableList(userCustomdata_);
+      public boolean hasUserCustomdata() {
+        return ((bitField2_ & 0x40000000) == 0x40000000);
       }
       /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
-      public int getUserCustomdataCount() {
-        return userCustomdata_.size();
+      public java.lang.String getUserCustomdata() {
+        java.lang.Object ref = userCustomdata_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          userCustomdata_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>repeated string user_customdata = 2009;</code>
-       */
-      public java.lang.String getUserCustomdata(int index) {
-        return userCustomdata_.get(index);
-      }
-      /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
       public com.google.protobuf.ByteString
-          getUserCustomdataBytes(int index) {
-        return userCustomdata_.getByteString(index);
+          getUserCustomdataBytes() {
+        java.lang.Object ref = userCustomdata_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userCustomdata_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
       public Builder setUserCustomdata(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUserCustomdataIsMutable();
-        userCustomdata_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string user_customdata = 2009;</code>
-       */
-      public Builder addUserCustomdata(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureUserCustomdataIsMutable();
-        userCustomdata_.add(value);
+  bitField2_ |= 0x40000000;
+        userCustomdata_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string user_customdata = 2009;</code>
-       */
-      public Builder addAllUserCustomdata(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureUserCustomdataIsMutable();
-        super.addAll(values, userCustomdata_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
       public Builder clearUserCustomdata() {
-        userCustomdata_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField2_ = (bitField2_ & ~0x40000000);
+        userCustomdata_ = getDefaultInstance().getUserCustomdata();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string user_customdata = 2009;</code>
+       * <code>optional string user_customdata = 2009;</code>
        */
-      public Builder addUserCustomdataBytes(
+      public Builder setUserCustomdataBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureUserCustomdataIsMutable();
-        userCustomdata_.add(value);
+  bitField2_ |= 0x40000000;
+        userCustomdata_ = value;
         onChanged();
         return this;
       }
 
-      // repeated string user_keywords = 2010;
-      private com.google.protobuf.LazyStringList userKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureUserKeywordsIsMutable() {
-        if (!((bitField2_ & 0x80000000) == 0x80000000)) {
-          userKeywords_ = new com.google.protobuf.LazyStringArrayList(userKeywords_);
-          bitField2_ |= 0x80000000;
-         }
-      }
+      // optional string user_keywords = 2010;
+      private java.lang.Object userKeywords_ = "";
       /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
-      public java.util.List<java.lang.String>
-          getUserKeywordsList() {
-        return java.util.Collections.unmodifiableList(userKeywords_);
+      public boolean hasUserKeywords() {
+        return ((bitField2_ & 0x80000000) == 0x80000000);
       }
       /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
-      public int getUserKeywordsCount() {
-        return userKeywords_.size();
+      public java.lang.String getUserKeywords() {
+        java.lang.Object ref = userKeywords_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          userKeywords_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>repeated string user_keywords = 2010;</code>
-       */
-      public java.lang.String getUserKeywords(int index) {
-        return userKeywords_.get(index);
-      }
-      /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
       public com.google.protobuf.ByteString
-          getUserKeywordsBytes(int index) {
-        return userKeywords_.getByteString(index);
+          getUserKeywordsBytes() {
+        java.lang.Object ref = userKeywords_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userKeywords_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
       public Builder setUserKeywords(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUserKeywordsIsMutable();
-        userKeywords_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string user_keywords = 2010;</code>
-       */
-      public Builder addUserKeywords(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureUserKeywordsIsMutable();
-        userKeywords_.add(value);
+  bitField2_ |= 0x80000000;
+        userKeywords_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string user_keywords = 2010;</code>
-       */
-      public Builder addAllUserKeywords(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureUserKeywordsIsMutable();
-        super.addAll(values, userKeywords_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
       public Builder clearUserKeywords() {
-        userKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField2_ = (bitField2_ & ~0x80000000);
+        userKeywords_ = getDefaultInstance().getUserKeywords();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string user_keywords = 2010;</code>
+       * <code>optional string user_keywords = 2010;</code>
        */
-      public Builder addUserKeywordsBytes(
+      public Builder setUserKeywordsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureUserKeywordsIsMutable();
-        userKeywords_.add(value);
+  bitField2_ |= 0x80000000;
+        userKeywords_ = value;
         onChanged();
         return this;
       }
@@ -12099,7 +12060,7 @@ public final class Events {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014events.proto\022\016liquidm.events\"\241\036\n\013Event" +
+      "\n\014events.proto\022\016liquidm.events\"\242\036\n\013Event" +
       "Logged\022\021\n\ttimestamp\030\001 \002(\002\0223\n\004type\030\002 \002(\0162" +
       "%.liquidm.events.EventLogged.EventType\022\n" +
       "\n\002tx\030\003 \001(\t\022\r\n\005token\030\004 \001(\t\022\021\n\timp_token\030\005" +
@@ -12147,57 +12108,57 @@ public final class Events {
       "t\030\205\010 \001(\002\022\014\n\003lng\030\206\010 \001(\002\022\032\n\021local_ad_provi" +
       "der\030\207\010 \001(\t\0227\n\010location\030\210\010 \001(\0162$.liquidm." +
       "events.EventLogged.Location\022\016\n\005mraid\030\211\010 " +
-      "\001(\010\022\036\n\025os_version_normalized\030\212\010 \001(\t\022\021\n\010p" +
-      "latform\030\213\010 \001(\t\022\026\n\rpotential_ads\030\214\010 \003(\005\022\017",
-      "\n\006remote\030\216\010 \001(\010\022\022\n\trequester\030\217\010 \001(\t\022\014\n\003r" +
-      "tb\030\220\010 \001(\010\022\020\n\007spotbuy\030\222\010 \001(\010\0221\n\005state\030\223\010 " +
-      "\001(\0162!.liquidm.events.EventLogged.State\022\024" +
-      "\n\013supply_type\030\224\010 \001(\t\022\013\n\002ua\030\225\010 \001(\t\022\023\n\ncat" +
-      "egories\030\321\017 \003(\005\022\r\n\004city\030\322\017 \001(\t\022\026\n\rno_bid_" +
-      "reason\030\323\017 \001(\t\022\027\n\016placement_type\030\324\017 \001(\t\022\030" +
-      "\n\017processing_time\030\325\017 \001(\005\022\017\n\006pub_id\030\326\017 \001(" +
-      "\t\022\021\n\010pub_name\030\327\017 \001(\t\022\026\n\rsite_keywords\030\330\017" +
-      " \003(\t\022\030\n\017user_customdata\030\331\017 \003(\t\022\026\n\ruser_k" +
-      "eywords\030\332\017 \003(\t\022\014\n\003zip\030\333\017 \001(\t\"\246\001\n\tEventTy",
-      "pe\022\016\n\nIMPRESSION\020\000\022\t\n\005CLICK\020\001\022\014\n\010DOWNLOA" +
-      "D\020\002\022\t\n\005TRACK\020\003\022\010\n\004VIEW\020\004\022\013\n\007ACTIONS\020\005\022\016\n" +
-      "\nBID_SUPPLY\020\013\022\016\n\nBID_DEMAND\020\014\022\026\n\022BID_REQ" +
-      "UEST_SUPPLY\020\025\022\026\n\022BID_REQUEST_DEMAND\020\026\")\n" +
-      "\006AdType\022\010\n\004NONE\020\000\022\t\n\005HOUSE\020\001\022\n\n\006PROVER\020\002" +
-      "\"\213\001\n\003Age\022\017\n\013UNKNOWN_AGE\020\000\022\007\n\003TEN\020\001\022\014\n\010EI" +
-      "GHTEEN\020\002\022\017\n\013TWENTY_FIVE\020\003\022\017\n\013THIRTY_FIVE" +
-      "\020\004\022\017\n\013FOURTY_FIVE\020\005\022\016\n\nFIFTY_FIVE\020\006\022\016\n\nS" +
-      "IXTY_FIVE\020\007\022\t\n\005OLDER\020\010\"\221\003\n\nBannerType\022\007\n" +
-      "\003MMA\020\001\022\014\n\010XX_LARGE\020\001\022\024\n\020MEDIUM_RECTANGLE",
-      "\020\002\022\017\n\013LEADERBOARD\020\003\022\016\n\nFULLSCREEN\020\004\022\014\n\010P" +
-      "ORTRAIT\020\005\022\r\n\tLANDSCAPE\020\006\022\016\n\nRICH_MEDIA\020\007" +
-      "\022\020\n\014INTERSTITIAL\020\007\022\024\n\020IPHONE_PRELOADER\020\010" +
-      "\022\016\n\nIPAD_SHORT\020\t\022\022\n\016IPAD_PRELOADER\020\n\022\036\n\032" +
-      "IPHONE_PRELOADER_LANDSCAPE\020\013\022\033\n\027IPAD_PRE" +
-      "LOADER_PORTRAIT\020\014\022\022\n\016VIDEO_PRE_ROLL\020\r\022\022\n" +
-      "\016VIDEO_MID_ROLL\020\016\022\023\n\017VIDEO_POST_ROLL\020\017\022\n" +
-      "\n\006CUSTOM\020\020\022\020\n\014NON_STANDARD\020\021\022\025\n\021IPHONE_F" +
-      "ULLSCREEN\020\022\022\t\n\005OTHER\020d\032\002\020\001\"2\n\006Gender\022\022\n\016" +
-      "UNKNOWN_GENDER\020\000\022\n\n\006FEMALE\020\001\022\010\n\004MALE\020\002\"\204",
-      "\001\n\006Income\022\022\n\016UNKNOWN_INCOME\020\000\022\t\n\005TEN_K\020\001" +
-      "\022\014\n\010TWENTY_K\020\002\022\014\n\010THIRTY_K\020\003\022\014\n\010FOURTY_K" +
-      "\020\004\022\013\n\007FIFTY_K\020\005\022\013\n\007SIXTY_K\020\006\022\r\n\tSEVENTY_" +
-      "K\020\007\022\010\n\004MORE\020\017\"\271\002\n\010Location\022\013\n\007HAMBURG\020\001\022" +
-      "\014\n\010HANNOVER\020\002\022\n\n\006BREMEN\020\003\022\016\n\nDUSSELDORF\020" +
-      "\004\022\014\n\010DUISBURG\020\005\022\t\n\005ESSEN\020\006\022\014\n\010COLOGONE\020\007" +
-      "\022\014\n\010DORTMUND\020\010\022\r\n\tFRANKFURT\020\t\022\r\n\tSTUTTGA" +
-      "RT\020\n\022\n\n\006MUNICH\020\013\022\n\n\006BERLIN\020\014\022\n\n\006LONDON\020\r" +
-      "\022\016\n\nMANCHESTER\020\016\022\r\n\tLIVERPOOL\020\017\022\013\n\007BRIST" +
-      "OL\020\020\022\r\n\tEDINBURGH\020\021\022\r\n\tBARCELONA\020\022\022\n\n\006MA",
-      "DRID\020\023\022\013\n\007SEVILLA\020\024\022\014\n\010ZARAGOZA\020\025\022\016\n\nVAL" +
-      "LADOLID\020\026\"\376\001\n\005State\022\007\n\002OK\020\310\001\022\024\n\017NO_AD_AV" +
-      "AILABLE\020\314\001\022\017\n\nUA_MISSING\020\232\003\022\017\n\nIP_MISSIN" +
-      "G\020\233\003\022\017\n\nUA_UNKNOWN\020\331\004\022\024\n\017COUNTRY_UNKNOWN" +
-      "\020\332\004\022\032\n\025COUNTRY_NOT_SUPPORTED\020\333\004\022\017\n\nPRIVA" +
-      "TE_IP\020\212\005\022\021\n\014SITE_INVALID\020\275\005\022\037\n\032INVALID_C" +
-      "ARRIER_GEO_TARGET\020\276\005\022\016\n\tUA_BANNED\020\205\007\022\016\n\t" +
-      "IP_BANNED\020\206\007\022\014\n\007INVALID\020\347\007B\r\n\013com.liquid" +
-      "m"
+      "\001(\010\022\036\n\025os_version_normalized\030\212\010 \001(\t\022\022\n\tp" +
+      "lattform\030\213\010 \001(\t\022\026\n\rpotential_ads\030\214\010 \003(\005\022",
+      "\017\n\006remote\030\216\010 \001(\010\022\022\n\trequester\030\217\010 \001(\t\022\014\n\003" +
+      "rtb\030\220\010 \001(\010\022\020\n\007spotbuy\030\222\010 \001(\010\0221\n\005state\030\223\010" +
+      " \001(\0162!.liquidm.events.EventLogged.State\022" +
+      "\024\n\013supply_type\030\224\010 \001(\t\022\013\n\002ua\030\225\010 \001(\t\022\023\n\nca" +
+      "tegories\030\321\017 \003(\005\022\r\n\004city\030\322\017 \001(\t\022\026\n\rno_bid" +
+      "_reason\030\323\017 \001(\t\022\027\n\016placement_type\030\324\017 \001(\t\022" +
+      "\030\n\017processing_time\030\325\017 \001(\005\022\017\n\006pub_id\030\326\017 \001" +
+      "(\t\022\021\n\010pub_name\030\327\017 \001(\t\022\026\n\rsite_keywords\030\330" +
+      "\017 \001(\t\022\030\n\017user_customdata\030\331\017 \001(\t\022\026\n\ruser_" +
+      "keywords\030\332\017 \001(\t\022\014\n\003zip\030\333\017 \001(\t\"\246\001\n\tEventT",
+      "ype\022\016\n\nIMPRESSION\020\000\022\t\n\005CLICK\020\001\022\014\n\010DOWNLO" +
+      "AD\020\002\022\t\n\005TRACK\020\003\022\010\n\004VIEW\020\004\022\013\n\007ACTIONS\020\005\022\016" +
+      "\n\nBID_SUPPLY\020\013\022\016\n\nBID_DEMAND\020\014\022\026\n\022BID_RE" +
+      "QUEST_SUPPLY\020\025\022\026\n\022BID_REQUEST_DEMAND\020\026\")" +
+      "\n\006AdType\022\010\n\004NONE\020\000\022\t\n\005HOUSE\020\001\022\n\n\006PROVER\020" +
+      "\002\"\213\001\n\003Age\022\017\n\013UNKNOWN_AGE\020\000\022\007\n\003TEN\020\001\022\014\n\010E" +
+      "IGHTEEN\020\002\022\017\n\013TWENTY_FIVE\020\003\022\017\n\013THIRTY_FIV" +
+      "E\020\004\022\017\n\013FOURTY_FIVE\020\005\022\016\n\nFIFTY_FIVE\020\006\022\016\n\n" +
+      "SIXTY_FIVE\020\007\022\t\n\005OLDER\020\010\"\221\003\n\nBannerType\022\007" +
+      "\n\003MMA\020\001\022\014\n\010XX_LARGE\020\001\022\024\n\020MEDIUM_RECTANGL",
+      "E\020\002\022\017\n\013LEADERBOARD\020\003\022\016\n\nFULLSCREEN\020\004\022\014\n\010" +
+      "PORTRAIT\020\005\022\r\n\tLANDSCAPE\020\006\022\016\n\nRICH_MEDIA\020" +
+      "\007\022\020\n\014INTERSTITIAL\020\007\022\024\n\020IPHONE_PRELOADER\020" +
+      "\010\022\016\n\nIPAD_SHORT\020\t\022\022\n\016IPAD_PRELOADER\020\n\022\036\n" +
+      "\032IPHONE_PRELOADER_LANDSCAPE\020\013\022\033\n\027IPAD_PR" +
+      "ELOADER_PORTRAIT\020\014\022\022\n\016VIDEO_PRE_ROLL\020\r\022\022" +
+      "\n\016VIDEO_MID_ROLL\020\016\022\023\n\017VIDEO_POST_ROLL\020\017\022" +
+      "\n\n\006CUSTOM\020\020\022\020\n\014NON_STANDARD\020\021\022\025\n\021IPHONE_" +
+      "FULLSCREEN\020\022\022\t\n\005OTHER\020d\032\002\020\001\"2\n\006Gender\022\022\n" +
+      "\016UNKNOWN_GENDER\020\000\022\n\n\006FEMALE\020\001\022\010\n\004MALE\020\002\"",
+      "\204\001\n\006Income\022\022\n\016UNKNOWN_INCOME\020\000\022\t\n\005TEN_K\020" +
+      "\001\022\014\n\010TWENTY_K\020\002\022\014\n\010THIRTY_K\020\003\022\014\n\010FOURTY_" +
+      "K\020\004\022\013\n\007FIFTY_K\020\005\022\013\n\007SIXTY_K\020\006\022\r\n\tSEVENTY" +
+      "_K\020\007\022\010\n\004MORE\020\017\"\271\002\n\010Location\022\013\n\007HAMBURG\020\001" +
+      "\022\014\n\010HANNOVER\020\002\022\n\n\006BREMEN\020\003\022\016\n\nDUSSELDORF" +
+      "\020\004\022\014\n\010DUISBURG\020\005\022\t\n\005ESSEN\020\006\022\014\n\010COLOGONE\020" +
+      "\007\022\014\n\010DORTMUND\020\010\022\r\n\tFRANKFURT\020\t\022\r\n\tSTUTTG" +
+      "ART\020\n\022\n\n\006MUNICH\020\013\022\n\n\006BERLIN\020\014\022\n\n\006LONDON\020" +
+      "\r\022\016\n\nMANCHESTER\020\016\022\r\n\tLIVERPOOL\020\017\022\013\n\007BRIS" +
+      "TOL\020\020\022\r\n\tEDINBURGH\020\021\022\r\n\tBARCELONA\020\022\022\n\n\006M",
+      "ADRID\020\023\022\013\n\007SEVILLA\020\024\022\014\n\010ZARAGOZA\020\025\022\016\n\nVA" +
+      "LLADOLID\020\026\"\376\001\n\005State\022\007\n\002OK\020\310\001\022\024\n\017NO_AD_A" +
+      "VAILABLE\020\314\001\022\017\n\nUA_MISSING\020\232\003\022\017\n\nIP_MISSI" +
+      "NG\020\233\003\022\017\n\nUA_UNKNOWN\020\331\004\022\024\n\017COUNTRY_UNKNOW" +
+      "N\020\332\004\022\032\n\025COUNTRY_NOT_SUPPORTED\020\333\004\022\017\n\nPRIV" +
+      "ATE_IP\020\212\005\022\021\n\014SITE_INVALID\020\275\005\022\037\n\032INVALID_" +
+      "CARRIER_GEO_TARGET\020\276\005\022\016\n\tUA_BANNED\020\205\007\022\016\n" +
+      "\tIP_BANNED\020\206\007\022\014\n\007INVALID\020\347\007B\r\n\013com.liqui" +
+      "dm"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -12209,7 +12170,7 @@ public final class Events {
           internal_static_liquidm_events_EventLogged_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_liquidm_events_EventLogged_descriptor,
-              new java.lang.String[] { "Timestamp", "Type", "Tx", "Token", "ImpToken", "UserToken", "Ip", "ReleaseSha1", "ClusterName", "Account", "Campaign", "Ad", "Site", "Actions", "Ais", "BidFactor", "BidFloor", "BidPrice", "BidRequests", "Bids", "Cis", "ClickBidFloor", "ClickBidPrice", "ClickECPI", "ClickPCtr", "Clicks", "DownloadBidFloor", "DownloadBidPrice", "DownloadECPI", "DownloadPCtr", "Downloads", "ECPI", "Earnings", "ImpressionBidFloor", "ImpressionBidPrice", "ImpressionECPI", "ImpressionPCtr", "InvalidClicks", "Ipb", "PCtr", "Pis", "Requests", "Spendings", "Views", "VideoComplete", "VideoFirstQuartile", "VideoMidpoint", "VideoThirdQuartile", "AbTest", "AdType", "AdProvider", "AdProviderConf", "AdvertiserAccount", "AdvertiserCompany", "Age", "BannerType", "BannerHeight", "BannerWidth", "Bidder", "Carrier", "Category", "Channel", "Company", "Country", "Device", "Gender", "GeoTarget", "GpsIsPrecise", "Idfa", "Income", "Language", "Lat", "Lng", "LocalAdProvider", "Location", "Mraid", "OsVersionNormalized", "Platform", "PotentialAds", "Remote", "Requester", "Rtb", "Spotbuy", "State", "SupplyType", "Ua", "Categories", "City", "NoBidReason", "PlacementType", "ProcessingTime", "PubId", "PubName", "SiteKeywords", "UserCustomdata", "UserKeywords", "Zip", });
+              new java.lang.String[] { "Timestamp", "Type", "Tx", "Token", "ImpToken", "UserToken", "Ip", "ReleaseSha1", "ClusterName", "Account", "Campaign", "Ad", "Site", "Actions", "Ais", "BidFactor", "BidFloor", "BidPrice", "BidRequests", "Bids", "Cis", "ClickBidFloor", "ClickBidPrice", "ClickECPI", "ClickPCtr", "Clicks", "DownloadBidFloor", "DownloadBidPrice", "DownloadECPI", "DownloadPCtr", "Downloads", "ECPI", "Earnings", "ImpressionBidFloor", "ImpressionBidPrice", "ImpressionECPI", "ImpressionPCtr", "InvalidClicks", "Ipb", "PCtr", "Pis", "Requests", "Spendings", "Views", "VideoComplete", "VideoFirstQuartile", "VideoMidpoint", "VideoThirdQuartile", "AbTest", "AdType", "AdProvider", "AdProviderConf", "AdvertiserAccount", "AdvertiserCompany", "Age", "BannerType", "BannerHeight", "BannerWidth", "Bidder", "Carrier", "Category", "Channel", "Company", "Country", "Device", "Gender", "GeoTarget", "GpsIsPrecise", "Idfa", "Income", "Language", "Lat", "Lng", "LocalAdProvider", "Location", "Mraid", "OsVersionNormalized", "Plattform", "PotentialAds", "Remote", "Requester", "Rtb", "Spotbuy", "State", "SupplyType", "Ua", "Categories", "City", "NoBidReason", "PlacementType", "ProcessingTime", "PubId", "PubName", "SiteKeywords", "UserCustomdata", "UserKeywords", "Zip", });
           return null;
         }
       };
