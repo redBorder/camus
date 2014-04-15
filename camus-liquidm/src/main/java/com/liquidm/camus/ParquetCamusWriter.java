@@ -19,7 +19,7 @@ import static com.liquidm.Events.*;
 /**
  * Created by sixtus on 14.03.14.
  */
-class ParquetCamusWriter implements RecordWriterProvider {
+public class ParquetCamusWriter implements RecordWriterProvider {
 
     @Override
     public String getFilenameExtension() {
@@ -34,7 +34,7 @@ class ParquetCamusWriter implements RecordWriterProvider {
         Path cwd = committer.getWorkPath();
         Path file = new Path(cwd, EtlMultiOutputFormat.getUniqueFile(context, fileName, getFilenameExtension()));
 
-        final ParquetWriter writer = new ParquetWriter(file, support, CompressionCodecName.GZIP,  ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE, false, false);
+        final ParquetWriter writer = new ParquetWriter(file, support, CompressionCodecName.GZIP, ParquetWriter.DEFAULT_BLOCK_SIZE, ParquetWriter.DEFAULT_PAGE_SIZE, true, true);
 
         return new RecordWriter<IEtlKey, CamusWrapper>() {
 

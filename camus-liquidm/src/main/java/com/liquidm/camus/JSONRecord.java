@@ -43,4 +43,8 @@ public class JSONRecord implements GenericRecord {
   public String toString() {
     return json.toString();
   }
+
+  public JsonNode getJson() {
+    return json;
+  }
 }
