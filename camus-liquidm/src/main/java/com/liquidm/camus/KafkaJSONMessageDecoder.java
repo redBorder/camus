@@ -19,7 +19,11 @@ public class KafkaJSONMessageDecoder extends MessageDecoder<byte[], JSONRecord> 
 
       return new CamusWrapper<JSONRecord>(record, rubyTs.longValue() * 1000, "liquidm", msgType);
     } catch (Exception e) {
-      throw new MessageDecoderException("Unable to deserialize event: " + message.toString(), e);
+      try {
+        throw new MessageDecoderException("Unable to deserialize event: " + (new String(message, "UTF-8")), e);
+      } catch (Exception ee) {
+        throw new MessageDecoderException("Unable to deserialize event: " + message.toString(), e);
+      }
     }
   }
 }
