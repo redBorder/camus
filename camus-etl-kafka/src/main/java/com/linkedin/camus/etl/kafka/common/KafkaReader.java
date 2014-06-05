@@ -122,9 +122,9 @@ public class KafkaReader {
 			key.clear();
 			key.set(kafkaRequest.getTopic(), kafkaRequest.getLeaderId(),
 					kafkaRequest.getPartition(), currentOffset,
-					msgAndOffset.offset(), message.checksum());
+					msgAndOffset.offset() + 1, message.checksum());
 
-			currentOffset = msgAndOffset.offset(); // increase offset
+			currentOffset = msgAndOffset.offset() + 1; // increase offset
 			currentCount++; // increase count
 
 			return true;
@@ -147,9 +147,9 @@ public class KafkaReader {
 		long tempTime = System.currentTimeMillis();
 		TopicAndPartition topicAndPartition = new TopicAndPartition(
 				kafkaRequest.getTopic(), kafkaRequest.getPartition());
-		log.debug("\nAsking for offset : " + (currentOffset+1));
+		log.debug("\nAsking for offset : " + (currentOffset));
 		PartitionFetchInfo partitionFetchInfo = new PartitionFetchInfo(
-				currentOffset+1, fetchBufferSize);
+				currentOffset, fetchBufferSize);
 
 		HashMap<TopicAndPartition, PartitionFetchInfo> fetchInfo = new HashMap<TopicAndPartition, PartitionFetchInfo>();
 		fetchInfo.put(topicAndPartition, partitionFetchInfo);
