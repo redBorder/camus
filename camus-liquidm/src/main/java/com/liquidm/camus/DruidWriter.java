@@ -37,11 +37,12 @@ public class DruidWriter implements RecordWriterProvider {
   public RecordWriter<IEtlKey, CamusWrapper> getDataRecordWriter(TaskAttemptContext context, String fileName, CamusWrapper data, FileOutputCommitter committer) throws IOException, InterruptedException {
       final QueuedThreadPool threadPool = new QueuedThreadPool();
       threadPool.setMinThreads(5);
-      threadPool.setMaxThreads(20);
+      threadPool.setMaxThreads(100);
 
       final Server server = new Server(threadPool);
-      ServerConnector connector = new ServerConnector(server);
+      final ServerConnector connector = new ServerConnector(server);
       server.setConnectors(new Connector[]{connector});
+
       try {
           server.start();
           System.out.println("Jetty on " + connector.getLocalPort());

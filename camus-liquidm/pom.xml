@@ -48,17 +48,10 @@
           <artifactId>jackson-dataformat-smile</artifactId>
           <version>2.3.3</version>
         </dependency>
-<!--
-        <dependency>
-            <groupId>io.druid</groupId>
-            <artifactId>druid-api</artifactId>
-            <version>0.2.3</version>
-        </dependency>
--->
         <dependency>
             <groupId>io.druid</groupId>
             <artifactId>druid-server</artifactId>
-            <version>0.6.120</version>
+            <version>0.6.121</version>
         </dependency>
     </dependencies>
 
