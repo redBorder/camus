@@ -22,7 +22,7 @@ public class KafkaJSONMessageDecoder extends MessageDecoder<byte[], JSONRecord> 
       try {
         throw new MessageDecoderException("Unable to deserialize event: " + (new String(message, "UTF-8")), e);
       } catch (Exception ee) {
-        throw new MessageDecoderException("Unable to deserialize event: " + message.toString(), e);
+        throw new MessageDecoderException("Unable to deserialize event: " + message, e);
       }
     }
   }
