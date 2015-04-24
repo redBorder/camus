@@ -106,18 +106,24 @@ public class KafkaReader {
 			Message message = msgAndOffset.message();
 
 			ByteBuffer buf = message.payload();
-			int origSize = buf.remaining();
-			byte[] bytes = new byte[origSize];
-			buf.get(bytes, buf.position(), origSize);
-			payload.set(bytes, 0, origSize);
+      if (buf == null) {
+        byte[] bytes = new byte[0];
+        payload.set(bytes, 0, 0);
+        pKey.set(bytes, 0, 0);
+      } else {
+        int origSize = buf.remaining();
+        byte[] bytes = new byte[origSize];
+        buf.get(bytes, buf.position(), origSize);
+        payload.set(bytes, 0, origSize);
 
-			buf = message.key();
-			if(buf != null){
-				origSize = buf.remaining();
-				bytes = new byte[origSize];
-				buf.get(bytes, buf.position(), origSize);
-				pKey.set(bytes, 0, origSize);
-			}
+        buf = message.key();
+        if(buf != null){
+          origSize = buf.remaining();
+          bytes = new byte[origSize];
+          buf.get(bytes, buf.position(), origSize);
+          pKey.set(bytes, 0, origSize);
+        }
+      }
 
 			key.clear();
 			key.set(kafkaRequest.getTopic(), kafkaRequest.getLeaderId(),
