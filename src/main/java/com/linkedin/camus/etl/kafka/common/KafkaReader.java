@@ -106,6 +106,9 @@ public class KafkaReader {
 			Message message = msgAndOffset.message();
 
 			ByteBuffer buf = message.payload();
+			if (buf == null) {
+				buf = ByteBuffer.allocate(0);
+			}
 			int origSize = buf.remaining();
 			byte[] bytes = new byte[origSize];
 			buf.get(bytes, buf.position(), origSize);

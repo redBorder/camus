@@ -12,6 +12,8 @@ import com.linkedin.camus.coders.CamusWrapper;
 import com.linkedin.camus.coders.MessageDecoder;
 import com.linkedin.camus.coders.MessageDecoderException;
 
+import com.metamx.common.parsers.TimestampParser;
+
 import org.apache.log4j.Logger;
 
 public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
@@ -21,7 +23,7 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
     public static final String DEFAULT_TIMESTAMP_FORMAT       = "iso";
 
     public static final String CAMUS_MESSAGE_TIMESTAMP_FIELD  = "camus.message.timestamp.field";
-    public static final String DEFAULT_TIMESTAMP_FIELD        = "ts";
+    public static final String DEFAULT_TIMESTAMP_FIELD        = "ruby";
 
     private String timestampFormat;
     private String timestampField;
@@ -41,8 +43,10 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
 
     @Override
     public CamusWrapper<String> decode(byte[] payload) {
+
         if (payload.length < 1) {
-            throw new RuntimeException("Empty payload!");
+            return new CamusWrapper<String>("", System.currentTimeMillis());
+            //throw new RuntimeException("Empty payload!");
         }
 
         String payloadString = new String(payload);
@@ -68,6 +72,8 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
                 timestamp = jsonObject.get(timestampField).getAsLong() * 1000L;
             } else if (timestampFormat.equals("unix_milliseconds")) {
                 timestamp = jsonObject.get(timestampField).getAsLong();
+            } else if (timestampFormat.equals("ruby")) {
+                timestamp = TimestampParser.createTimestampParser(timestampFormat).apply(jsonObject.get(timestampField).getAsString()).getMillis();
             } else {
                 String timestampString = jsonObject.get(timestampField).getAsString();
                 try {
