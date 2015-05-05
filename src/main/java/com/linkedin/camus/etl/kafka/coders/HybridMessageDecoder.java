@@ -45,8 +45,7 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
     public CamusWrapper<String> decode(byte[] payload) {
 
         if (payload.length < 1) {
-            return new CamusWrapper<String>("", System.currentTimeMillis());
-            //throw new RuntimeException("Empty payload!");
+            throw new RuntimeException("Empty payload!");
         }
 
         String payloadString = new String(payload);
