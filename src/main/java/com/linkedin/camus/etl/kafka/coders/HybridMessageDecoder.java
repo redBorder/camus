@@ -20,10 +20,10 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
     private static org.apache.log4j.Logger log = Logger.getLogger(HybridMessageDecoder.class);
 
     public static final String CAMUS_MESSAGE_TIMESTAMP_FORMAT = "camus.message.timestamp.format";
-    public static final String DEFAULT_TIMESTAMP_FORMAT       = "iso";
+    public static final String DEFAULT_TIMESTAMP_FORMAT       = "ruby";
 
     public static final String CAMUS_MESSAGE_TIMESTAMP_FIELD  = "camus.message.timestamp.field";
-    public static final String DEFAULT_TIMESTAMP_FIELD        = "ruby";
+    public static final String DEFAULT_TIMESTAMP_FIELD        = "timestamp";
 
     private String timestampFormat;
     private String timestampField;
