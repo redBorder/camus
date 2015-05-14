@@ -129,6 +129,12 @@ public class EtlMultiOutputCommitter extends FileOutputCommitter {
             EtlMultiOutputFormat.getPartitioner(context, topic).generatePartitionedPath(context, topic, leaderId,
                             Integer.parseInt(partition), encodedPartition);
 
+
+
+        if(encodedPartition.contains("==")){
+            encodedPartition=encodedPartition.split("==")[0];
+        }
+
         return partitionedPath +
                     "/" + topic + "." + leaderId + "." + partition +
                     "." + count+

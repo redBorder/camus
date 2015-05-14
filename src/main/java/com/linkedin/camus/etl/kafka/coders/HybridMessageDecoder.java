@@ -2,6 +2,9 @@ package com.linkedin.camus.etl.kafka.coders;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 import java.text.SimpleDateFormat;
 
@@ -20,21 +23,26 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
     private static org.apache.log4j.Logger log = Logger.getLogger(HybridMessageDecoder.class);
 
     public static final String CAMUS_MESSAGE_TIMESTAMP_FORMAT = "camus.message.timestamp.format";
-    public static final String DEFAULT_TIMESTAMP_FORMAT       = "ruby";
+    public static final String DEFAULT_TIMESTAMP_FORMAT = "ruby";
 
-    public static final String CAMUS_MESSAGE_TIMESTAMP_FIELD  = "camus.message.timestamp.field";
-    public static final String DEFAULT_TIMESTAMP_FIELD        = "timestamp";
+    public static final String CAMUS_MESSAGE_TIMESTAMP_FIELD = "camus.message.timestamp.field";
+    public static final String DEFAULT_TIMESTAMP_FIELD = "timestamp";
+
+    public static final String CAMUS_RB_SPECIFIC_PATH = "camus.rb.specific.path";
+    public static final String DEFAULT_RB_SPECIFIC_PATH = "";
 
     private String timestampFormat;
     private String timestampField;
+    private String key;
 
     @Override
     public void init(Properties props, String topicName) {
         this.props = props;
         this.topicName = topicName;
 
-        timestampField = props.getProperty(CAMUS_MESSAGE_TIMESTAMP_FIELD,  DEFAULT_TIMESTAMP_FIELD);
+        timestampField = props.getProperty(CAMUS_MESSAGE_TIMESTAMP_FIELD, DEFAULT_TIMESTAMP_FIELD);
         timestampFormat = props.getProperty(CAMUS_MESSAGE_TIMESTAMP_FORMAT, DEFAULT_TIMESTAMP_FORMAT);
+        key = props.getProperty(CAMUS_RB_SPECIFIC_PATH, DEFAULT_RB_SPECIFIC_PATH);
 
         if (timestampFormat.equals("iso")) {
             timestampFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -83,11 +91,17 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
             }
         }
 
+        String keyValue = "not_deployment";
+
+        if (jsonObject.has(key)) {
+            keyValue = jsonObject.get(key).getAsString();
+        }
+
         if (timestamp == 0) {
             log.warn("Couldn't find timestamp field '" + timestampField + "' in JSON message, defaulting to current time.");
             timestamp = System.currentTimeMillis();
         }
 
-        return new CamusWrapper<String>(payloadString, timestamp);
+        return new CamusWrapper<String>(payloadString, timestamp, "unknown_server", keyValue);
     }
 }
