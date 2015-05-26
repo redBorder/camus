@@ -26,8 +26,8 @@ public class RbPartitioner extends Partitioner{
     public String generatePartitionedPath(JobContext context, String topic, String brokerId, int partitionId, String encodedPartition) {
         String [] keys = encodedPartition.split("==");
         StringBuilder sb = new StringBuilder();
-        sb.append(keys[1]).append("/");
         sb.append(topic).append("/");
+        sb.append(keys[1]).append("/");
         sb.append(EtlMultiOutputFormat.getDestPathTopicSubDir(context)).append("/");
         DateTime bucket = new DateTime(Long.valueOf(keys[0]));
         sb.append(bucket.toString(outputDateFormatter));

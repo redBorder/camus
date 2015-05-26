@@ -17,4 +17,4 @@ camus.rb.specific.path=field1
  {"timestamp": 1431583200, "field1":"value1", "field2":"data2"}
 ```
 
-You get this HDFS path: <b> ${topic}/hourly/2015/05/14/06/value1/*.gz </b>
+You get this HDFS path: <b> ${topic}/value1/hourly/2015/05/14/06/*.gz </b>
