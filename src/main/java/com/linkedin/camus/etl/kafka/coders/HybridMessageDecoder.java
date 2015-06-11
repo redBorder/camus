@@ -91,7 +91,7 @@ public class HybridMessageDecoder extends MessageDecoder<byte[], String> {
             }
         }
 
-        String keyValue = "not_" + key;
+        String keyValue = "default";
 
         if (jsonObject.has(key)) {
             keyValue = jsonObject.get(key).getAsString();
