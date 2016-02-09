@@ -61,7 +61,7 @@ public class EtlMultiOutputCommitter extends FileOutputCommitter {
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
-        workingFileMetadataPattern = Pattern.compile("data\\.([^\\.]+)\\.([\\d_]+)\\.(\\d+)\\.([^\\.]+)-m-\\d+" + recordWriterProvider.getFilenameExtension());
+        workingFileMetadataPattern = Pattern.compile("data\\.([^\\.]+)\\.([\\d_]+)\\.(\\d+)\\.(.+)-m-\\d+" + recordWriterProvider.getFilenameExtension());
         this.log = log;
     }
 
